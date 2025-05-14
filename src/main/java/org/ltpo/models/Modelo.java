@@ -16,7 +16,7 @@ public  class Modelo {
 
     private String marca;
 
-    @OneToMany(mappedBy = "automovel",
+    @OneToMany(mappedBy = "modelo",
     cascade = CascadeType.ALL)
     private List<Automovel> automoveis;
 
