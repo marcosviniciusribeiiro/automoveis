@@ -2,7 +2,6 @@ package org.ltpo.models;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
 @Entity
 @Table(name = "automovel")
 public class Automovel {
@@ -24,16 +23,13 @@ public class Automovel {
     @JoinColumn(name = "usuario_id")
     private Usuario usuario;
 
+    public Automovel() {}
 
     public Automovel(String placa, int ano, String cor, Modelo modelo) {
-        this.id = id;
         this.placa = placa;
         this.ano = ano;
         this.cor = cor;
         this.modelo = modelo;
-    }
-    public Automovel(){
-
     }
 
     public int getId() {
@@ -56,16 +52,16 @@ public class Automovel {
         return ano;
     }
 
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
     public String getCor() {
         return cor;
     }
 
     public void setCor(String cor) {
         this.cor = cor;
-    }
-
-    public void setAno(int ano) {
-        this.ano = ano;
     }
 
     public Modelo getModelo() {
@@ -75,8 +71,17 @@ public class Automovel {
     public void setModelo(Modelo modelo) {
         this.modelo = modelo;
     }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
     @Override
-    public String toString (){
+    public String toString() {
         return "Automovel{ id= " + id +
                 ", modelo= '" + modelo +
                 "', placa= '" + placa +
