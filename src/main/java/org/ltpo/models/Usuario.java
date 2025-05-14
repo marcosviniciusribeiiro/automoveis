@@ -1,14 +1,13 @@
 package org.ltpo.models;
 
 import jakarta.persistence.*;
-
 import org.ltpo.enuns.Tipo;
-
 import java.util.List;
 
 @Entity
 @Table(name = "usuario")
 public class Usuario {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -21,16 +20,18 @@ public class Usuario {
     @Column(name = "tipo_usuario", nullable = false)
     private Tipo tipo;
 
-    @OneToMany(mappedBy = "automovel",
+    @OneToMany(mappedBy = "usuario",
     cascade = CascadeType.ALL)
     private List<Automovel> automoveis;
 
+
     public Usuario () {}
 
-    public Usuario (String nome, String telefone, Tipo tipo){
+    public Usuario (String nome, String telefone, Tipo tipo, List<Automovel> automoveis){
         this.nome = nome;
         this.telefone = telefone;
         this.tipo = tipo;
+        this.automoveis = automoveis;
     }
 
     public int getId() {
