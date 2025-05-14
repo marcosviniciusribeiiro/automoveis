@@ -25,7 +25,7 @@ public class Main {
 
         // Criar o usuário e associar o automóvel
         Usuario cliente = new Usuario("João", "94316-5091", Tipo.CLIENTE, Arrays.asList(automovel));
-        automovel.setUsuario(cliente); // <- ESSENCIAL
+        automovel.setUsuario(cliente);
 
         // Salvar o usuário (o automóvel será salvo automaticamente por Cascade.ALL)
         usuarioDAO.salvar(cliente);
