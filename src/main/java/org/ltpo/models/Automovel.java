@@ -17,14 +17,23 @@ public class Automovel {
     private String cor;
 
     @ManyToOne
-    @JoinColumn(name = "modelo_id")
+    @JoinColumn(name = "modelo_id", referencedColumnName = "id")
     private Modelo modelo;
 
-    public Automovel(String placa, int ano, String cor) {
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
+
+    public Automovel(String placa, int ano, String cor, Modelo modelo) {
         this.id = id;
         this.placa = placa;
         this.ano = ano;
         this.cor = cor;
+        this.modelo = modelo;
+    }
+    public Automovel(){
+
     }
 
     public int getId() {
