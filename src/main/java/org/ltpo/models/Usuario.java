@@ -27,11 +27,10 @@ public class Usuario {
 
     public Usuario () {}
 
-    public Usuario (String nome, String telefone, Tipo tipo, List<Automovel> automoveis){
+    public Usuario (String nome, String telefone, Tipo tipo){
         this.nome = nome;
         this.telefone = telefone;
         this.tipo = tipo;
-        this.automoveis = automoveis;
     }
 
     public int getId() {
