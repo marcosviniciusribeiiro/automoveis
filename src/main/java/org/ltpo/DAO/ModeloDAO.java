@@ -15,11 +15,11 @@ public class ModeloDAO {
         private EntityManager em;
 
         public ModeloDAO(){
-            emf = Persistence.createEntityManagerFactory("modelPU");
+            emf = Persistence.createEntityManagerFactory("modeloPU");
             em = emf.createEntityManager();
         }
 
-        //Método para salvar um novo usuário
+        //Método para salvar um novo modelo
         public void salvar(Modelo modelo) {
             try {
 
@@ -34,13 +34,13 @@ public class ModeloDAO {
         }
 
 
-    //Método para buscar todos os usuários
+    //Método para buscar todos os modelos
     public List<Modelo> buscarTodos(){
         return em.createQuery("SELECT m FROM Modelo m", Modelo.class).getResultList();
     }
 
 
-        //Método para buscar usuário por ID
+        //Método para buscar modelo por ID
         public  Modelo buscarPorId(int id){
             return em.find(Modelo.class, id);
         }
