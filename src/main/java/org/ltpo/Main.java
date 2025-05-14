@@ -14,35 +14,39 @@ import java.util.List;
 public class Main {
     public static void main(String[] args){
         ModeloDAO modeloDAO = new ModeloDAO();
-        AutomovelDAO automovelDAO = new AutomovelDAO();
         UsuarioDAO usuarioDAO = new UsuarioDAO();
 
-        //inserir novo Modelo, Automovel, Usuario
-        Modelo modelo = new Modelo("HB20","Hyundai");
-        Automovel hb20 = new Automovel("AWC6930", 2012, "Prata", modelo);
-
-        Usuario cliente = new Usuario("João", "94316-5091", Tipo.CLIENTE, Arrays.asList(hb20) );
-
+        // Criar e salvar o modelo
+        Modelo modelo = new Modelo("Corola", "Toyota");
         modeloDAO.salvar(modelo);
-        automovelDAO.salvar((hb20));
+
+        // Criar o automóvel
+        Automovel automovel = new Automovel("SVY2091", 2019, "Preto", modelo);
+
+        // Criar o usuário e associar o automóvel
+        Usuario cliente = new Usuario("João", "94316-5091", Tipo.CLIENTE, Arrays.asList(automovel));
+        automovel.setUsuario(cliente); // <- ESSENCIAL
+
+        // Salvar o usuário (o automóvel será salvo automaticamente por Cascade.ALL)
         usuarioDAO.salvar(cliente);
 
         System.out.println("Modelo inserido: " + modelo);
-        System.out.println("Automovel inserido: " + hb20);
+        System.out.println("Automovel inserido: " + automovel);
         System.out.println("Usuario inserido: " + cliente);
 
-        //Buscar todos os Modelos, Automoveis e Usuarios
+        // Buscar todos os registros
         List<Modelo> modelos = modeloDAO.buscarTodos();
         System.out.println("\nTodos os Modelos:");
-        for(Modelo m :modelos){
+        for(Modelo m : modelos){
             System.out.println(m);
         }
 
+        AutomovelDAO automovelDAO = new AutomovelDAO();
         List<Automovel> automoveis = automovelDAO.buscarTodos();
         System.out.println("\nTodos os Automoveis:");
         for(Automovel a : automoveis){
             System.out.println(a);
-          }
+        }
 
         List<Usuario> usuarios = usuarioDAO.buscarTodos();
         System.out.println("\nTodos os Usuarios:");
@@ -50,8 +54,7 @@ public class Main {
             System.out.println(u);
         }
 
-
-        //Buscar um Modelo, Automovel e Usuario pelo ID
+        // Buscar por ID
         Modelo modeloBuscado = modeloDAO.buscarPorId(1);
         System.out.println("\nModelos com o ID 1: " + modeloBuscado);
 
@@ -61,10 +64,9 @@ public class Main {
         Usuario usuarioBuscado = usuarioDAO.buscarPorId(1);
         System.out.println("\nUsuario com o ID 1: " + usuarioBuscado);
 
-        //Fechar o EntityManger
+        // Fechar conexões
         modeloDAO.fechar();
         automovelDAO.fechar();
         usuarioDAO.fechar();
-
     }
 }
