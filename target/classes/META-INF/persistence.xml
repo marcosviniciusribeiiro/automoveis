@@ -15,7 +15,7 @@
 
             <property name="jakarta.persistence.jdbc.user" value="root"/>
 
-            <property name="jakarta.persistence.jdbc.password" value=""/>
+            <property name="jakarta.persistence.jdbc.password" value="E8Uq$JH04yWGtuy"/>
 
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
 
@@ -37,7 +37,7 @@
 
             <property name="jakarta.persistence.jdbc.user" value="root"/>
 
-            <property name="jakarta.persistence.jdbc.password" value=""/>
+            <property name="jakarta.persistence.jdbc.password" value="E8Uq$JH04yWGtuy"/>
 
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
 
@@ -59,7 +59,7 @@
 
             <property name="jakarta.persistence.jdbc.user" value="root"/>
 
-            <property name="jakarta.persistence.jdbc.password" value=""/>
+            <property name="jakarta.persistence.jdbc.password" value="E8Uq$JH04yWGtuy"/>
 
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/>
 
