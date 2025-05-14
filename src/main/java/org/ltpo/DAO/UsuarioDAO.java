@@ -34,7 +34,7 @@ public class UsuarioDAO {
     public List<Usuario> buscarTodos(){
         return em.createQuery("SELECT u FROM Usuario u", Usuario.class).getResultList();
     }
-    
+
     //Método para buscar Usuario por ID
     public  Usuario buscarPorId(int id){
         return em.find(Usuario.class, id);
